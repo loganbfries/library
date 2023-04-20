@@ -13,3 +13,7 @@ function Book(title, author, numberOfPages, hasRead) {
     }.`;
   };
 }
+
+function addsBookToLibrary(book) {
+  myLibrary.push(book);
+}
