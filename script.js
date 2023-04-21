@@ -2,6 +2,14 @@
 
 let myLibrary = [];
 
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
 function Book(title, author, numberOfPages, hasRead) {
   this.title = title;
   this.author = author;
