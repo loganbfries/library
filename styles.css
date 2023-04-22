@@ -16,8 +16,11 @@ body {
     width: 50vw;
 }
 
-.content-container h1 {
-    padding-left: 40px;
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
 }
 
 .card-container {
