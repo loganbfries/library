@@ -13,25 +13,35 @@
 <body>
     <button class="open-button" onclick="openForm()">Add Book</button>
 
-    <div class="form-popup" id="myForm">
-        <form action="/action_page.php" class="form-container">
-            <h1>New Book</h1>
+    <div class='content-container'>
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+                <h1>New Book</h1>
 
-            <label for="book-title"><b>Title</b></label>
-            <input type="text" placeholder="Enter Title of Book" name="book-title" required>
+                <label for="book-title"><b>Title</b></label>
+                <input type="text" placeholder="Enter Title of Book" name="book-title" required>
 
-            <label for="book-author"><b>Author</b></label>
-            <input type="text" placeholder="Enter Password" name="book-author" required>
+                <label for="book-author"><b>Author</b></label>
+                <input type="text" placeholder="Enter Password" name="book-author" required>
 
-            <label for='book-length'><b># Pages</b></label>
-            <input type='number' placeholder='Enter # of Pages' name='book-length' required>
+                <label for='book-length'><b># Pages</b></label>
+                <input type='number' placeholder='Enter # of Pages' name='book-length' required>
 
-            <label for='book-read'><b>Read?</b></label>
-            <input type='checkbox' name='book-read' required>
+                <label for='book-read'><b>Read?</b></label>
+                <input type='checkbox' name='book-read' required>
 
-            <button type="submit" class="btn">Add</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
+                <button type="submit" class="btn">Add</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+
+        <div class='card-container'>
+            <div class='card'>
+                <h4>The Hobbit</h4>
+                <p>By: J.R.R. Tolkein</p>
+                <p>Pages: 400</p>
+            </div>
+        </div>
     </div>
 </body>
 
