@@ -16,6 +16,10 @@ body {
     width: 50vw;
 }
 
+.content-container h1 {
+    padding-left: 40px;
+}
+
 .card-container {
     display: grid;
     margin: 40px;
