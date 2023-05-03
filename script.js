@@ -64,7 +64,4 @@ addsBookToLibrary(Rust);
 console.log(myLibrary);
 console.log(typeof myLibrary);
 
-// myLibrary.forEach((item) => console.log(item.title));
-
-// displayLibrary(myLibrary);
 displayBookCard(Rust);
