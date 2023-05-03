@@ -1,5 +1,8 @@
 /** @format */
 
+const cardContainer = document.querySelector(".card-container");
+console.log(cardContainer);
+
 let myLibrary = [];
 
 function openForm() {
@@ -34,25 +37,34 @@ function displayBookCard(book) {
     <div class = 'card'> 
       <h4>${book.title}</h4>
       <p>By: ${book.author}</p>
-      <p>Pages: ${book.pages}</p>
+      <p>Pages: ${book.numberOfPages}</p>
     </div>
   `;
+
+  cardContainer.innerHTML += content;
 }
 
-// // function addNewBook()
+// function displayLibrary(library) {
+//   library.forEach((item) => displayBookCard(item));
+// }
 
-// const Hobbit = new Book("Hobbit", "J.R.R. Tolkein", 400, true);
-// addsBookToLibrary(Hobbit);
+// function addNewBook()
 
-// const Rust = new Book(
-//   "The Rust Programming Language",
-//   "Steve Klabnik",
-//   600,
-//   false
-// );
-// addsBookToLibrary(Rust);
+const Hobbit = new Book("Hobbit", "J.R.R. Tolkein", 400, true);
+addsBookToLibrary(Hobbit);
 
-// console.log(myLibrary);
-// console.log(typeof myLibrary);
+const Rust = new Book(
+  "The Rust Programming Language",
+  "Steve Klabnik",
+  600,
+  false
+);
+addsBookToLibrary(Rust);
+
+console.log(myLibrary);
+console.log(typeof myLibrary);
 
 // myLibrary.forEach((item) => console.log(item.title));
+
+// displayLibrary(myLibrary);
+displayBookCard(Rust);
