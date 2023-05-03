@@ -44,11 +44,9 @@ function displayBookCard(book) {
   cardContainer.innerHTML += content;
 }
 
-// function displayLibrary(library) {
-//   library.forEach((item) => displayBookCard(item));
-// }
-
-// function addNewBook()
+function displayLibrary(library) {
+  library.forEach((item) => displayBookCard(item));
+}
 
 const Hobbit = new Book("Hobbit", "J.R.R. Tolkein", 400, true);
 addsBookToLibrary(Hobbit);
@@ -61,7 +59,16 @@ const Rust = new Book(
 );
 addsBookToLibrary(Rust);
 
+const ISLR = new Book(
+  "An Introduction to Statistical Learning",
+  "James, Witten, Hastie, Tibshirani",
+  900,
+  false
+);
+addsBookToLibrary(ISLR);
+
 console.log(myLibrary);
 console.log(typeof myLibrary);
 
-displayBookCard(Rust);
+// displayBookCard(Rust);
+displayLibrary(myLibrary);
