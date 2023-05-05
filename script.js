@@ -34,11 +34,17 @@ function displayBookCard(book) {
   card.classList = "card-body";
 
   const content = `
-    <div class = 'card'> 
+  <div class='card'>
+    <div class='card-info'>
       <h4>${book.title}</h4>
       <p>By: ${book.author}</p>
       <p>Pages: ${book.numberOfPages}</p>
     </div>
+    <div class='buttons'>
+      <button class='btn-update'>Update</button>
+      <button class='btn-del'>Delete</button>
+    </div>
+  </div>
   `;
 
   cardContainer.innerHTML += content;
