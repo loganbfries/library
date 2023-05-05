@@ -15,22 +15,22 @@
 
     <div class='content-container'>
         <div class="form-popup" id="myForm">
-            <form action="/action_page.php" class="form-container">
+            <form action="/action_page.php" onsubmit="event.preventDefault()" class="form-container">
                 <h1>New Book</h1>
 
                 <label for="book-title"><b>Title</b></label>
-                <input type="text" placeholder="Enter Title of Book" name="book-title" required>
+                <input type="text" id='title' placeholder="Enter Title of Book" name="book-title" required>
 
                 <label for="book-author"><b>Author</b></label>
-                <input type="text" placeholder="Enter Password" name="book-author" required>
+                <input type="text" id='author' placeholder="Enter Password" name="book-author" required>
 
                 <label for='book-length'><b># Pages</b></label>
-                <input type='number' placeholder='Enter # of Pages' name='book-length' required>
+                <input type='number' id="pageNumber" placeholder='Enter # of Pages' name='book-length' required>
 
                 <label for='book-read'><b>Read?</b></label>
-                <input type='checkbox' name='book-read' required>
+                <input type='checkbox' id='hasRead' name='book-read'>
 
-                <button type="submit" class="btn">Add</button>
+                <button type="submit" class="btn" onclick="getFormData()">Add</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
         </div>
