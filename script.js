@@ -60,6 +60,11 @@ function updateLibrary(book) {
   displayBookCard(book);
 }
 
+function resetForm() {
+  closeForm();
+  form.reset();
+}
+
 function getFormData() {
   var title = document.getElementById("title").value;
   var author = document.getElementById("author").value;
@@ -69,8 +74,8 @@ function getFormData() {
   const newBook = new Book(title, author, pageNumber, hasRead);
 
   updateLibrary(newBook);
-  closeForm();
-  form.reset();
+
+  resetForm();
 }
 
 const Hobbit = new Book("Hobbit", "J.R.R. Tolkein", 400, true);
