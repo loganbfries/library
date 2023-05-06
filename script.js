@@ -1,7 +1,8 @@
 /** @format */
 
 const cardContainer = document.querySelector(".card-container");
-console.log(cardContainer);
+const form = document.querySelector(".form-container");
+const formTitle = document.getElementById("title");
 
 let myLibrary = [];
 
@@ -54,6 +55,21 @@ function displayLibrary(library) {
   library.forEach((item) => displayBookCard(item));
 }
 
+function getFormData() {
+  var title = document.getElementById("title").value;
+  var author = document.getElementById("author").value;
+  var pageNumber = document.getElementById("pageNumber").value;
+  var hasRead = document.getElementById("hasRead").checked;
+
+  const newBook = new Book(title, author, pageNumber, hasRead);
+  console.log(newBook);
+  addsBookToLibrary(newBook);
+  console.log(myLibrary);
+  displayBookCard(newBook);
+  closeForm();
+  form.reset();
+}
+
 const Hobbit = new Book("Hobbit", "J.R.R. Tolkein", 400, true);
 addsBookToLibrary(Hobbit);
 
@@ -73,8 +89,4 @@ const ISLR = new Book(
 );
 addsBookToLibrary(ISLR);
 
-console.log(myLibrary);
-console.log(typeof myLibrary);
-
-// displayBookCard(Rust);
 displayLibrary(myLibrary);
