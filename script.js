@@ -62,9 +62,9 @@ function getFormData() {
   var hasRead = document.getElementById("hasRead").checked;
 
   const newBook = new Book(title, author, pageNumber, hasRead);
-  console.log(newBook);
+
   addsBookToLibrary(newBook);
-  console.log(myLibrary);
+
   displayBookCard(newBook);
   closeForm();
   form.reset();
