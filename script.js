@@ -55,6 +55,11 @@ function displayLibrary(library) {
   library.forEach((item) => displayBookCard(item));
 }
 
+function updateLibrary(book) {
+  addsBookToLibrary(book);
+  displayBookCard(book);
+}
+
 function getFormData() {
   var title = document.getElementById("title").value;
   var author = document.getElementById("author").value;
@@ -63,9 +68,7 @@ function getFormData() {
 
   const newBook = new Book(title, author, pageNumber, hasRead);
 
-  addsBookToLibrary(newBook);
-
-  displayBookCard(newBook);
+  updateLibrary(newBook);
   closeForm();
   form.reset();
 }
