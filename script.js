@@ -35,7 +35,7 @@ function displayBookCard(book) {
   card.classList = "card-body";
 
   const content = `
-  <div class='card'>
+  <div class='card' data-num = ${myLibrary.length}>
     <div class='card-info'>
       <h4>${book.title}</h4>
       <p>By: ${book.author}</p>
@@ -43,7 +43,7 @@ function displayBookCard(book) {
     </div>
     <div class='buttons'>
       <button class='btn-update'>Update</button>
-      <button class='btn-del'>Delete</button>
+      <button class='btn-del' data-num = ${myLibrary.length}>Delete</button>
     </div>
   </div>
   `;
@@ -51,13 +51,42 @@ function displayBookCard(book) {
   cardContainer.innerHTML += content;
 }
 
-function displayLibrary(library) {
-  library.forEach((item) => displayBookCard(item));
+function resetLibrary(book, index) {
+  const card = document.createElement("div");
+  card.classList = "card-body";
+
+  const content = `
+  <div class='card' data-num = ${index + 1}>
+    <div class='card-info'>
+      <h4>${book.title}</h4>
+      <p>By: ${book.author}</p>
+      <p>Pages: ${book.numberOfPages}</p>
+    </div>
+    <div class='buttons'>
+      <button class='btn-update'>Update</button>
+      <button class='btn-del' data-num = ${index + 1}>Delete</button>
+    </div>
+  </div>
+  `;
+
+  cardContainer.innerHTML += content;
 }
 
+// For displaying the initial library.
+function displayLibrary(library) {
+  library.forEach((item, index) => resetLibrary(item, index));
+  removeBooks();
+}
+
+// For displaying any new entries.
 function updateLibrary(book) {
   addsBookToLibrary(book);
   displayBookCard(book);
+}
+
+// Clears the entire displayed library.
+function clearLibrary(element) {
+  element.innerHTML = "";
 }
 
 function resetForm() {
@@ -75,11 +104,15 @@ function getFormData() {
 
   updateLibrary(newBook);
 
+  // Remove books function allows us to continually press remove on the different cards.
+  removeBooks();
+
   resetForm();
 }
 
+// Test books.
 const Hobbit = new Book("Hobbit", "J.R.R. Tolkein", 400, true);
-addsBookToLibrary(Hobbit);
+updateLibrary(Hobbit);
 
 const Rust = new Book(
   "The Rust Programming Language",
@@ -87,7 +120,7 @@ const Rust = new Book(
   600,
   false
 );
-addsBookToLibrary(Rust);
+updateLibrary(Rust);
 
 const ISLR = new Book(
   "An Introduction to Statistical Learning",
@@ -95,6 +128,21 @@ const ISLR = new Book(
   900,
   false
 );
-addsBookToLibrary(ISLR);
+updateLibrary(ISLR);
 
-displayLibrary(myLibrary);
+// I have to put all of this down here for some reason...
+// but I have created removeBooks function so that I can continually call it each time I update the page because it breaks when I try to remove more than one books without reinitializing the entire thing.
+const removeBooks = function () {
+  const removeBookBtns = document.querySelectorAll(".btn-del");
+  removeBookBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      index = btn.getAttribute("data-num");
+      myLibrary.splice(index - 1, 1);
+      console.log(myLibrary);
+      clearLibrary(cardContainer);
+      displayLibrary(myLibrary);
+    });
+  });
+};
+
+removeBooks();
