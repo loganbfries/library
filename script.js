@@ -30,6 +30,7 @@ function addsBookToLibrary(book) {
   myLibrary.push(book);
 }
 
+// displayBookCard and resetLibrary are redundant but idk how to compact them.
 function displayBookCard(book) {
   const card = document.createElement("div");
   card.classList = "card-body";
