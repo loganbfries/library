@@ -76,3 +76,7 @@ button {
     margin: 10px;
     cursor: pointer;
 }
+
+.card-info {
+    padding: 20px;
+}
