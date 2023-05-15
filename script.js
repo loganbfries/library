@@ -38,7 +38,7 @@ function displayBookCard(book) {
   const content = `
   <div class='card' data-num = ${myLibrary.length}>
     <div class='card-info'>
-      <h4>${book.title}</h4>
+      <h4>"${book.title}"</h4>
       <p>By: ${book.author}</p>
       <p>Pages: ${book.numberOfPages}</p>
     </div>
@@ -59,7 +59,7 @@ function resetLibrary(book, index) {
   const content = `
   <div class='card' data-num = ${index + 1}>
     <div class='card-info'>
-      <h4>${book.title}</h4>
+      <h4>"${book.title}"</h4>
       <p>By: ${book.author}</p>
       <p>Pages: ${book.numberOfPages}</p>
     </div>
