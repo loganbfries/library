@@ -28,7 +28,7 @@ form {
 body {
     display: flex;
     justify-content: center;
-    background-color:biege;
+    background-color:#E0B0FF;
 }
 
 .content-container {
@@ -37,7 +37,7 @@ body {
     justify-content: center; */
     height: 100vh;
     width: 50vw;
-    background-color: lavender;
+    background-color:#E0B0FF;
 }
 
 .header{
@@ -56,9 +56,23 @@ body {
 }
 
 .card {
-    border : 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    background-color: #BDB5D5;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+button {
+    border-radius: 10px;
+    background-color: lavender;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
 }
