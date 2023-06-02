@@ -133,6 +133,8 @@ updateLibrary(ISLR);
 
 // I have to put all of this down here for some reason...
 // but I have created removeBooks function so that I can continually call it each time I update the page because it breaks when I try to remove more than one books without reinitializing the entire thing.
+
+// I THINK THIS IS HAPPENING BECAUSE NO BUTTONS EXIST ON THE PAGE WHEN IT LOADS INITIALLY BECAUSE THE HTML CONTAINER IS EMPTY.
 const removeBooks = function () {
   const removeBookBtns = document.querySelectorAll(".btn-del");
   removeBookBtns.forEach(function (btn) {
@@ -145,5 +147,12 @@ const removeBooks = function () {
     });
   });
 };
+
+document.querySelectorAll(".btn-update").forEach((el) => {
+  el.addEventListener("click", function (e) {
+    let parentElement = e.target.parentElement;
+    console.log(parentElement.parentElement);
+  });
+});
 
 removeBooks();
