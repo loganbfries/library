@@ -41,6 +41,7 @@ function displayBookCard(book) {
       <h4>"${book.title}"</h4>
       <p>By: ${book.author}</p>
       <p>Pages: ${book.numberOfPages}</p>
+      <button class = 'read-btn'>Has Read</button>
     </div>
     <div class='buttons'>
       <button class='btn-update'>Update</button>
@@ -62,6 +63,7 @@ function resetLibrary(book, index) {
       <h4>"${book.title}"</h4>
       <p>By: ${book.author}</p>
       <p>Pages: ${book.numberOfPages}</p>
+      <button>Read: ${book.hasRead}</button>
     </div>
     <div class='buttons'>
       <button class='btn-update'>Update</button>
@@ -155,6 +157,12 @@ const update = function () {
     });
   });
 };
+
+document.querySelectorAll(".read-btn").forEach((el) => {
+  el.addEventListener("click", function () {
+    console.log("read button clicked.");
+  });
+});
 
 removeBooks();
 
