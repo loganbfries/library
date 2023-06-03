@@ -157,4 +157,6 @@ const update = function () {
 };
 
 removeBooks();
+
+// Update functionality works, but I haven't added a form to actually update the text. Need to implement this later.
 update();
