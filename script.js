@@ -41,7 +41,7 @@ function displayBookCard(book) {
       <h4>"${book.title}"</h4>
       <p>By: ${book.author}</p>
       <p>Pages: ${book.numberOfPages}</p>
-      <button class = 'read-btn'>Has Read</button>
+      <button class = 'read-btn'>Read: ${book.hasRead}</button>
     </div>
     <div class='buttons'>
       <button class='btn-update'>Update</button>
@@ -63,7 +63,7 @@ function resetLibrary(book, index) {
       <h4>"${book.title}"</h4>
       <p>By: ${book.author}</p>
       <p>Pages: ${book.numberOfPages}</p>
-      <button>Read: ${book.hasRead}</button>
+      <button class = 'read-btn'>Read: ${book.hasRead}</button>
     </div>
     <div class='buttons'>
       <button class='btn-update'>Update</button>
@@ -79,6 +79,7 @@ function resetLibrary(book, index) {
 function displayLibrary(library) {
   library.forEach((item, index) => resetLibrary(item, index));
   removeBooks();
+  enableReadBtn();
   update();
 }
 
@@ -110,6 +111,7 @@ function getFormData() {
 
   // Remove books function allows us to continually press remove on the different cards.
   removeBooks();
+  enableReadBtn();
   update();
 
   resetForm();
@@ -158,13 +160,18 @@ const update = function () {
   });
 };
 
-document.querySelectorAll(".read-btn").forEach((el) => {
-  el.addEventListener("click", function () {
-    console.log("read button clicked.");
+const enableReadBtn = function () {
+  document.querySelectorAll(".read-btn").forEach((el) => {
+    el.addEventListener("click", function () {
+      console.log(el.innerHTML);
+      if (el.innerHTML.includes("true")) {
+        console.log("this book has been read");
+      }
+    });
   });
-});
+};
 
 removeBooks();
-
+enableReadBtn();
 // Update functionality works, but I haven't added a form to actually update the text. Need to implement this later.
 update();
