@@ -41,7 +41,7 @@ function displayBookCard(book) {
       <h4>"${book.title}"</h4>
       <p>By: ${book.author}</p>
       <p>Pages: ${book.numberOfPages}</p>
-      <button class = 'read-btn'>Read: ${book.hasRead}</button>
+      <button class = 'read-btn'>${book.hasRead ? "Read" : "Not Read"}</button>
     </div>
     <div class='buttons'>
       <button class='btn-update'>Update</button>
@@ -63,7 +63,9 @@ function resetLibrary(book, index) {
       <h4>"${book.title}"</h4>
       <p>By: ${book.author}</p>
       <p>Pages: ${book.numberOfPages}</p>
-      <button class = 'read-btn'>Read: ${book.hasRead}</button>
+      <button class = 'read-btn'>Read: ${
+        book.hasRead ? "Read" : "Not Read"
+      }</button>
     </div>
     <div class='buttons'>
       <button class='btn-update'>Update</button>
@@ -162,14 +164,29 @@ const update = function () {
 
 const enableReadBtn = function () {
   document.querySelectorAll(".read-btn").forEach((el) => {
+    if (el.innerHTML.includes("Not Read")) {
+      el.style.background = "red";
+    } else {
+      el.style.background = "green";
+    }
+
     el.addEventListener("click", function () {
-      console.log(el.innerHTML);
-      if (el.innerHTML.includes("true")) {
-        console.log("this book has been read");
+      if (el.innerHTML.includes("Not Read")) {
+        el.innerHTML = "Read";
+        el.style.background = "green";
+      } else {
+        el.innerHTML = "Not Read";
+        el.style.background = "red";
       }
     });
   });
 };
+
+// const readBtnOnLoad = function () {
+//   document.querySelectorAll('.read-btn').forEach((el) => {
+//     if (el.innerHTML )
+//   })
+// }
 
 removeBooks();
 enableReadBtn();
