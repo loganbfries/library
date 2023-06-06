@@ -63,9 +63,7 @@ function resetLibrary(book, index) {
       <h4>"${book.title}"</h4>
       <p>By: ${book.author}</p>
       <p>Pages: ${book.numberOfPages}</p>
-      <button class = 'read-btn'>Read: ${
-        book.hasRead ? "Read" : "Not Read"
-      }</button>
+      <button class = 'read-btn'>${book.hasRead ? "Read" : "Not Read"}</button>
     </div>
     <div class='buttons'>
       <button class='btn-update'>Update</button>
@@ -181,12 +179,6 @@ const enableReadBtn = function () {
     });
   });
 };
-
-// const readBtnOnLoad = function () {
-//   document.querySelectorAll('.read-btn').forEach((el) => {
-//     if (el.innerHTML )
-//   })
-// }
 
 removeBooks();
 enableReadBtn();
