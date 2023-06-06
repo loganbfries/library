@@ -144,7 +144,6 @@ const removeBooks = function () {
     btn.addEventListener("click", function () {
       index = btn.getAttribute("data-num");
       myLibrary.splice(index - 1, 1);
-      console.log(myLibrary);
       clearLibrary(cardContainer);
       displayLibrary(myLibrary);
     });
@@ -162,6 +161,11 @@ const update = function () {
 
 const enableReadBtn = function () {
   document.querySelectorAll(".read-btn").forEach((el) => {
+    // This is such an ugly way to get the name of the book from the div.
+    const title = el.parentElement.children[0].textContent.split('"').join("");
+
+    console.log(myLibrary);
+
     if (el.innerHTML.includes("Not Read")) {
       el.style.background = "red";
     } else {
@@ -172,11 +176,21 @@ const enableReadBtn = function () {
       if (el.innerHTML.includes("Not Read")) {
         el.innerHTML = "Read";
         el.style.background = "green";
+        updateStatus(title);
       } else {
         el.innerHTML = "Not Read";
         el.style.background = "red";
+        updateStatus(title);
       }
     });
+  });
+};
+
+const updateStatus = function (title) {
+  myLibrary.forEach((el) => {
+    if (el.title == title) {
+      el.hasRead = !el.hasRead;
+    }
   });
 };
 
